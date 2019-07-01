@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import './App.css';
+import CardContainer from '../cardContainer/CardContainer';
+import IntroStory from '../introStory/IntroStory';
+import HeaderFav from '../headerFav/HeaderFav';
 
 class App extends Component {
   constructor() {
@@ -8,7 +12,13 @@ class App extends Component {
 
   render = () => {
     return(
-      <div>Hullo</div>
+      <main>
+        <IntroStory />
+        <div className='content'>
+          <HeaderFav />
+          <CardContainer />
+        </div>
+      </main>
     )
   }
 }
