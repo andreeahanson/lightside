@@ -1,6 +1,4 @@
-import React from 'react';
-
-const sample = {
+const samplePeople = {
   results: [
     {
       birth_year: "41.9BBY",
@@ -186,4 +184,4 @@ const sample = {
   ]
 }
 
-export default sample;
+export default samplePeople;
