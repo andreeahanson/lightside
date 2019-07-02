@@ -7,6 +7,6 @@ import App from './components/app/App';
 // fetch('https://swapi.co/api/people/?page=2')
 //   .then(res => res.json())
 //   .then(data => obj = data)
-//   .then(() => console.log(obj))
+//   .then(() => console.log(obj.results))
 
 ReactDOM.render(<App />, document.getElementById('root'));
