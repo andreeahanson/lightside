@@ -2,16 +2,16 @@ import React from 'react';
 import './CardContainer.css';
 import Card from '../card/Card';
 
-const CardContainer = ({results}) => {
-    return(
-      <div>
+const CardContainer = ({ people }) => {
+  // console.log(people);
+  return (
+    <div>
       <h1>Select a Category</h1>
-      <section className="card-container">
-      <Card results={results}/>
+      <section className='card-container'>
+        <Card people={people} />
       </section>
-      </div>
-
-    )
-}
+    </div>
+  );
+};
 
 export default CardContainer;
