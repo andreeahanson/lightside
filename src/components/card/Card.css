@@ -1,0 +1,11 @@
+.favorite {
+  background: yellow;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 90%;
+  margin: 10px;
+}
