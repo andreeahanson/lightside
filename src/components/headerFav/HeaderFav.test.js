@@ -1,15 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Card from './Card';
-import samplePerson from '../../sampleDataDirectory/samplePeople'
+import HeaderFav from './HeaderFav';
 
-describe('Card', () => {
+describe('HeaderFav', () => {
   let wrapper;
   
     beforeEach(() => {
-      wrapper = shallow(<Card 
-      people ={samplePerson.results}
-      />)
+      wrapper = shallow(<HeaderFav />)
     })
 
   it('should match the snapshot', () => {
