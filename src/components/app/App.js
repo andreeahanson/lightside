@@ -43,8 +43,8 @@ class App extends Component {
     return (
       <main>
         {!this.state.films.length && (
-            <img src='https://ui-ex.com/images/transparent-background-loading-3.gif' />
-          )}
+          <img src='https://ui-ex.com/images/transparent-background-loading-3.gif' />
+        )}
         <IntroStory films={films} />
         <div className='content'>
           <HeaderFav />

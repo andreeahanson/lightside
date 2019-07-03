@@ -5,13 +5,14 @@ aside {
 
 .slider {
   animation: slide-up 15s linear infinite;
+  height: 400px;
 }
 
 @keyframes slide-up {
   from {
-      transform: translateY(600px);
+    transform: translateY(600px);
   }
   to {
-      transform: translateY(-100px);
+    transform: translateY(-100px);
   }
 }
