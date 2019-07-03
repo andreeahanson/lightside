@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
-import CardContainer from '../cardContainer/CardContainer';
+import { Route, NavLink } from 'react-router-dom';
+// import CardContainer from '../cardContainer/CardContainer';
+import Person from '../person/Person';
+import Planet from '../planet/Planet';
+import Vehicle from '../vehicle/Vehicle';
 import IntroStory from '../introStory/IntroStory';
 import HeaderFav from '../headerFav/HeaderFav';
 // import sample from './sample';
@@ -37,21 +41,35 @@ class App extends Component {
   };
 
   render = () => {
-    const films = this.state.films;
-    // console.log('display', this.state.films)
+    const loading = !this.state.films.length && <img src='https://loading.io/spinners/flickr/lg.orbit-balls-loading-gif.gif' alt='loading' />;
     return (
       <main>
-        {!this.state.films.length && (
-          <img src='https://ui-ex.com/images/transparent-background-loading-3.gif' />
-        )}
-        <IntroStory films={films} />
-        <div className='content'>
-          <HeaderFav />
-          {!this.state.people.length && (
-            <img src='https://ui-ex.com/images/transparent-background-loading-3.gif' />
-          )}
-          <CardContainer state={this.state} />
-        </div>
+        <HeaderFav />
+        <nav>
+          <NavLink to='/people'>People</NavLink>
+          <NavLink to='/planets'>Planets</NavLink>
+          <NavLink to='/vehicles'>Vehicles</NavLink>
+        </nav>
+        <section>
+          {loading}
+          <Route
+            exact
+            path='/'
+            render={() => <IntroStory films={this.state.films} />}
+          />
+          <Route
+            path='/people'
+            render={() => <Person people={this.state.people} />}
+          />
+          <Route
+            path='/planets'
+            render={() => <Planet planets={this.state.planets} />}
+          />
+          <Route
+            path='/vehicles'
+            render={() => <Vehicle vehicles={this.state.vehicles} />}
+          />
+        </section>
       </main>
     );
   };
