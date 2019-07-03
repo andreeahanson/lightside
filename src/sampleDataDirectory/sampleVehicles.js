@@ -1,5 +1,5 @@
 const sampleVehicles = {
-  results: [
+    results: [
     {
         "name": "Sand Crawler",
         "model": "Digger Crawler",

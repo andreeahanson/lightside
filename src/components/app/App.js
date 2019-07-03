@@ -37,7 +37,6 @@ class App extends Component {
   };
 
   render = () => {
-    const people = this.state.people;
     const films = this.state.films;
     // console.log('display', this.state.films)
     return (
@@ -51,7 +50,7 @@ class App extends Component {
           {!this.state.people.length && (
             <img src='https://ui-ex.com/images/transparent-background-loading-3.gif' />
           )}
-          <CardContainer people={people} />
+          <CardContainer state={this.state} />
         </div>
       </main>
     );
