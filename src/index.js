@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/app/App';
+import { BrowserRouter } from 'react-router-dom';
 
-// var obj;
+const display = (
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+);
 
-// fetch('https://swapi.co/api/people/?page=2')
-//   .then(res => res.json())
-//   .then(data => obj = data)
-//   .then(() => console.log(obj.results))
-
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(display, document.getElementById('root'));
