@@ -17,14 +17,15 @@
   border: 1px red solid;
   box-sizing: border-box;
   font-family: 'STARWARS';
-  color: blue;
+  color: rgba(229, 177, 58, 1);
 }
 
 html {
-  background-image: url('https://static0.srcdn.com/wordpress/wp-content/uploads/2018/01/Battlefront-2-Pink-Darth-Vader-mod.jpg');
+  background-image: url('https://wallpaperplay.com/walls/full/9/8/3/197774.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  background-attachment:fixed;
 }
 
 .header {

@@ -6,7 +6,7 @@ const Planet = ({ planets }) => {
   // console.log(people);
   let allCards = planets.map(planet => {
     return (
-      <article class='card'>
+      <article class='card planet'>
         <h3>{planet.name}</h3>
         <p>{planet.terrain}</p>
         <p>{planet.diameter}</p>

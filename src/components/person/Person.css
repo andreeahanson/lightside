@@ -1,5 +1,5 @@
 .favorite {
-  background: yellow;
+  background: pink;
 }
 
 .card {
@@ -8,4 +8,16 @@
   text-align: center;
   width: 90%;
   margin: 10px;
+}
+
+.person {
+  background-color: rgba(0, 255, 255, 0.8);
+}
+
+.planet {
+  background-color: rgba(173, 255, 47, 0.8);
+}
+
+.vehicle {
+  background-color: rgba(255, 0, 255, 0.8);
 }
