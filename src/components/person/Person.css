@@ -1,5 +1,8 @@
 .favorite {
-  background: pink;
+  height: 40px;
+  width: 40px;
+  align-self: center;
+  
 }
 
 .card {
@@ -8,16 +11,22 @@
   text-align: center;
   width: 90%;
   margin: 10px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment:fixed;
+  border-radius: 5%;
 }
 
 .person {
-  background-color: rgba(0, 255, 255, 0.8);
+  background-image: url('http://bwncy.com/g/2/in/interior-design-futuristic-lab-brick-fireplace-mantels-house-inside-patterns-for-backsplash-in-kitchens-computer-room-luxury-table-environment-contemporary-wood-architectural-details.jpg');
+  
 }
 
 .planet {
-  background-color: rgba(173, 255, 47, 0.8);
+  background-image: url('https://static.turbosquid.com/Preview/001230/665/E1/scifi-modular-hallway-3D_D.jpg');
 }
 
 .vehicle {
-  background-color: rgba(255, 0, 255, 0.8);
+    background-image: url('https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/Vtapge4oeikxz0vzf/sci-fi-gate-green-screen_4vyxiwvtg__F0003.png');
 }
