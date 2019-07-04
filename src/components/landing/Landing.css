@@ -1,12 +1,12 @@
-.white {
-  color: white;
-}
-
 .card-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 20px;
   overflow: scroll;
+}
+
+.crawler {
+  background: none !important;
 }
 
 @keyframes crawl {
