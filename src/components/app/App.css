@@ -17,10 +17,12 @@
   border: 1px red solid;
   box-sizing: border-box;
   font-family: 'STARWARS';
+  color: blue;
 }
 
-main {
+.header {
   display: flex;
+  flex-direction: column;
 }
 
 .content {

@@ -1,15 +1,16 @@
 import React from 'react';
-import './IntroStory.css';
+import Crawl from 'react-star-wars-crawl';
+import './Landing.css';
 
-const IntroStory = ({ films }) => {
+const Landing = ({ films }) => {
   const movie = films[Math.floor(Math.random() * films.length)] || {};
   return (
-    <aside className='slider'>
-      <p>{movie.opening_crawl}</p>
+    <Crawl>
       <h3>{movie.title}</h3>
+      <p>{movie.opening_crawl}</p>
       <h4>{movie.release_date}</h4>
-    </aside>
+    </Crawl>
   );
 };
 
-export default IntroStory;
+export default Landing;
