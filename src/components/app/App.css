@@ -14,10 +14,10 @@
 }
 
 * {
-  border: 1px red solid;
   box-sizing: border-box;
   font-family: 'STARWARS';
   color: rgba(229, 177, 58, 1);
+  text-shadow: black 5px 0 10px;
 }
 
 html {
@@ -28,12 +28,37 @@ html {
   background-attachment:fixed;
 }
 
+div {
+  background-image: none !important;
+}
+
+nav {
+  margin-bottom: 30px;
+}
+
 .header {
   display: flex;
   flex-direction: column;
-  /* background-color: violet; */
 }
 
 .content {
   width: 80%;
+}
+
+.nav-button {
+  padding: 10px;
+  border: 3px solid #b37d00;
+  color: #b37d00;
+  transition: all .5s ease;
+  font-size: 30px;
+}
+
+.nav-button:hover {
+  background-color: transparent;
+  border-radius: 20px;
+}
+
+.nav-button.active {
+  border: 3px solid #ff63d8;
+  color: #ff63d8;
 }

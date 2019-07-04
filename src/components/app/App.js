@@ -49,9 +49,9 @@ class App extends Component {
         <div className='header'>
           <HeaderFav />
           <nav className='nav-links'>
-            <NavLink to='/people'>People</NavLink>
-            <NavLink to='/planets'>Planets</NavLink>
-            <NavLink to='/vehicles'>Vehicles</NavLink>
+            <NavLink to='/people' className='nav-button'>People</NavLink>
+            <NavLink to='/planets' className='nav-button'>Planets</NavLink>
+            <NavLink to='/vehicles' className='nav-button'>Vehicles</NavLink>
           </nav>
         </div>
         <section>

@@ -6,7 +6,7 @@ const Vehicle = ({ vehicles }) => {
   // console.log(people);
   let allCards = vehicles.map(vehicle => {
     return (
-      <article class='card vehicle'>
+      <article className='card vehicle' key={vehicle.created}>
         <h3>{vehicle.name}</h3>
         <p>{vehicle.model}</p>
         <p>{vehicle.vehicle_class}</p>
