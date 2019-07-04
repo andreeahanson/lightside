@@ -5,7 +5,8 @@ import { Route, NavLink } from 'react-router-dom';
 import Person from '../person/Person';
 import Planet from '../planet/Planet';
 import Vehicle from '../vehicle/Vehicle';
-import IntroStory from '../introStory/IntroStory';
+// import IntroStory from '../introStory/IntroStory';
+import Landing from '../landing/Landing';
 import HeaderFav from '../headerFav/HeaderFav';
 // import sample from './sample';
 
@@ -22,11 +23,12 @@ class App extends Component {
   }
 
   getData = () => {
+    const tinyUrls = 'https://swapi.co/api/';
     const urls = [
-      { title: 'people', link: 'https://swapi.co/api/people/' },
-      { title: 'planets', link: 'https://swapi.co/api/planets/' },
-      { title: 'vehicles', link: 'https://swapi.co/api/vehicles/' },
-      { title: 'films', link: 'https://swapi.co/api/films/' }
+      { title: 'people', link: `${tinyUrls}people/` },
+      { title: 'planets', link: `${tinyUrls}planets/` },
+      { title: 'vehicles', link: `${tinyUrls}vehicles/` },
+      { title: 'films', link: `${tinyUrls}films/` }
     ];
     urls.map(url => {
       return fetch(url.link)
@@ -41,34 +43,38 @@ class App extends Component {
   };
 
   render = () => {
-    const loading = !this.state.films.length && <img src='https://loading.io/spinners/flickr/lg.orbit-balls-loading-gif.gif' alt='loading' />;
+    // const loading = !this.state.films.length && <img src='https://loading.io/spinners/flickr/lg.orbit-balls-loading-gif.gif' alt='loading' />;
     return (
       <main>
-        <HeaderFav />
-        <nav>
-          <NavLink to='/people'>People</NavLink>
-          <NavLink to='/planets'>Planets</NavLink>
-          <NavLink to='/vehicles'>Vehicles</NavLink>
-        </nav>
+        <div className='header'>
+          <HeaderFav />
+          <nav>
+            <NavLink to='/people'>People</NavLink>
+            <NavLink to='/planets'>Planets</NavLink>
+            <NavLink to='/vehicles'>Vehicles</NavLink>
+          </nav>
+        </div>
         <section>
-          {loading}
+          {/* {loading} */}
           <Route
             exact
             path='/'
-            render={() => <IntroStory films={this.state.films} />}
+            render={() => <Landing films={this.state.films} />}
           />
-          <Route
-            path='/people'
-            render={() => <Person people={this.state.people} />}
-          />
-          <Route
-            path='/planets'
-            render={() => <Planet planets={this.state.planets} />}
-          />
-          <Route
-            path='/vehicles'
-            render={() => <Vehicle vehicles={this.state.vehicles} />}
-          />
+          <div className='card-container'>
+            <Route
+              path='/people'
+              render={() => <Person people={this.state.people} />}
+            />
+            <Route
+              path='/planets'
+              render={() => <Planet planets={this.state.planets} />}
+            />
+            <Route
+              path='/vehicles'
+              render={() => <Vehicle vehicles={this.state.vehicles} />}
+            />
+          </div>
         </section>
       </main>
     );

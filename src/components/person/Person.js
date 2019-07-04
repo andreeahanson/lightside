@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Person.css';
 
 const Person = ({ people }) => {
@@ -16,6 +17,10 @@ const Person = ({ people }) => {
     );
   });
   return allCards;
+};
+
+Person.propTypes = {
+  people: PropTypes.array
 };
 
 export default Person;
