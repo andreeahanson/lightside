@@ -2,15 +2,17 @@ import React from 'react';
 import './HeaderFav.css';
 import { Link } from 'react-router-dom';
 
-const HeaderFav = () => {
+const HeaderFav = ({favorites}) => {
   return (
     <header className='title'>
       <Link to='/'>
         <h1>Light Side</h1>
       </Link>
-      <p>
-        Favorites <span> 0</span>
-      </p>
+      <Link to='/favorites'>
+        <p>
+          Favorites <span>{favorites}</span>
+        </p>
+      </Link>
     </header>
   );
 };
