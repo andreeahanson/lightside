@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Planet.css';
 
 const Planet = ({ planets }) => {
@@ -15,6 +16,10 @@ const Planet = ({ planets }) => {
     );
   });
   return allCards;
+};
+
+Planet.propTypes = {
+  planets: PropTypes.array
 };
 
 export default Planet;

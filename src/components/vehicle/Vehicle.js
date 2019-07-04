@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Vehicle.css';
 
 const Vehicle = ({ vehicles }) => {
@@ -15,6 +16,10 @@ const Vehicle = ({ vehicles }) => {
     );
   });
   return allCards;
+};
+
+Vehicle.propTypes = {
+  vehicles: PropTypes.array
 };
 
 export default Vehicle;
