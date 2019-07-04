@@ -9,7 +9,7 @@ const HeaderFav = () => {
         <h1>Light Side</h1>
       </Link>
       <p>
-        View Favorites <span> 0</span>
+        Favorites <span> 0</span>
       </p>
     </header>
   );

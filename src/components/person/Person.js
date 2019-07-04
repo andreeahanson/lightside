@@ -6,7 +6,7 @@ const Person = ({ people }) => {
   // console.log(people);
   let allCards = people.map(person => {
     return (
-      <article class='card person'>
+      <article className='card person' key={person.created}>
         <h3>{person.name}</h3>
         <p>{person.birth_year}</p>
         <p>{person.gender}</p>
