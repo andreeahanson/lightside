@@ -20,9 +20,17 @@
   color: blue;
 }
 
+html {
+  background-image: url('https://static0.srcdn.com/wordpress/wp-content/uploads/2018/01/Battlefront-2-Pink-Darth-Vader-mod.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 .header {
   display: flex;
   flex-direction: column;
+  /* background-color: violet; */
 }
 
 .content {
