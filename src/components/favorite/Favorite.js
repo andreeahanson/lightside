@@ -15,10 +15,10 @@ const Favorite = ({ favorites }) => {
           <h3 className='top-card'>{favorite.name}</h3>
           <hr />
           <div className='mid-card'>
-            <p>{favorite.birth_year}</p>
-            <p>{favorite.gender}</p>
-            <p>{favorite.height}</p>
-            <p>{favorite.hair_color}</p>
+          <p>Birth Year: {favorite.birth_year}</p>
+          <p>Gender: {favorite.gender}</p>
+          <p>Height: {favorite.height}</p>
+          <p>Hair Ccolor: {favorite.hair_color}</p>
           </div>
           <hr />
           <p className='favorite bottom-card unfav'>Unfavorite</p>
@@ -34,9 +34,9 @@ const Favorite = ({ favorites }) => {
           <h3 className='top-card'>{favorite.name}</h3>
           <hr />
           <div className='mid-card'>
-            <p>{favorite.terrain}</p>
-            <p>{favorite.diameter}</p>
-            <p>{favorite.population}</p>
+          <p>Terrain: {favorite.terrain}</p>
+          <p>Diameter: {favorite.diameter}</p>
+          <p>Population: {favorite.population}</p>
           </div>
           <hr />
           <p className='favorite bottom-card unfav'>Unfavorite</p>
@@ -53,9 +53,9 @@ const Favorite = ({ favorites }) => {
           <h3 className='top-card'>{favorite.name}</h3>
           <hr />
           <div className='mid-card'>
-            <p>{favorite.model}</p>
-            <p>{favorite.vehicle_class}</p>
-            <p>{favorite.passengers}</p>
+          <p>Model: {favorite.model}</p>
+          <p>Class: {favorite.vehicle_class}</p>
+          <p>Passengers: {favorite.passengers}</p>
           </div>
           <hr />
           <p className='favorite bottom-card unfav'>Unfavorite</p>

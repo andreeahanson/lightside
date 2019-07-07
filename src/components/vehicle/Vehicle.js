@@ -16,9 +16,9 @@ const Vehicle = ({ vehicles, makeFavorite, favorites }) => {
         <h3 className='top-card'>{vehicle.name}</h3>
         <hr />
         <div className='mid-card'>
-          <p>{vehicle.model}</p>
-          <p>{vehicle.vehicle_class}</p>
-          <p>{vehicle.passengers}</p>
+          <p>Model: {vehicle.model}</p>
+          <p>Class: {vehicle.vehicle_class}</p>
+          <p>Passengers: {vehicle.passengers}</p>
         </div>
         <hr />
         <p

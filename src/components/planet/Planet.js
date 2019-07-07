@@ -16,9 +16,9 @@ const Planet = ({ planets, makeFavorite, favorites }) => {
         <h3 className='top-card'>{planet.name}</h3>
         <hr />
         <div className='mid-card'>
-          <p>{planet.terrain}</p>
-          <p>{planet.diameter}</p>
-          <p>{planet.population}</p>
+          <p>Terrain: {planet.terrain}</p>
+          <p>Diameter: {planet.diameter}</p>
+          <p>Population: {planet.population}</p>
         </div>
         <hr />
         <p className='favorite bottom-card'>Favorite</p>

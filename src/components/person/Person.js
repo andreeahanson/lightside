@@ -15,10 +15,10 @@ const Person = ({ people, makeFavorite, favorites }) => {
         <h3 className='top-card'>{person.name}</h3>
         <hr />
         <div className='mid-card'>
-          <p>{person.birth_year}</p>
-          <p>{person.gender}</p>
-          <p>{person.height}</p>
-          <p>{person.hair_color}</p>
+          <p>Birth Year: {person.birth_year}</p>
+          <p>Gender: {person.gender}</p>
+          <p>Height: {person.height}</p>
+          <p>Hair Ccolor: {person.hair_color}</p>
         </div>
         <hr />
         <p className='favorite bottom-card'>Favorite</p>
