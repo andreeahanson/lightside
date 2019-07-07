@@ -5,6 +5,7 @@ import './Favorite.css';
 const Favorite = ({ favorites, makeFavorite }) => {
   let allCards = favorites.map(favorite => {
     const classString = `card-${favorites.includes(favorite) && 'faved'}`;
+    const faveStatus = classString === 'card-faved' ? 'Unfavorite' : 'Favorite';
     if (favorite.birth_year) {
       return (
         <article
@@ -22,7 +23,7 @@ const Favorite = ({ favorites, makeFavorite }) => {
             <p>Hair Ccolor: {favorite.hair_color}</p>
           </div>
           <hr />
-          <p className='favorite bottom-card unfav'>Unfavorite</p>
+          <p className='favorite bottom-card unfav'>{faveStatus}</p>
         </article>
       );
     } else if (favorite.terrain) {
@@ -41,7 +42,7 @@ const Favorite = ({ favorites, makeFavorite }) => {
             <p>Population: {favorite.population}</p>
           </div>
           <hr />
-          <p className='favorite bottom-card unfav'>Unfavorite</p>
+          <p className='favorite bottom-card unfav'>{faveStatus}</p>
         </article>
       );
     } else {
@@ -63,7 +64,7 @@ const Favorite = ({ favorites, makeFavorite }) => {
             <p>Passengers: {favorite.passengers}</p>
           </div>
           <hr />
-          <p className='favorite bottom-card unfav'>Unfavorite</p>
+          <p className='favorite bottom-card unfav'>{faveStatus}</p>
         </article>
       );
     }

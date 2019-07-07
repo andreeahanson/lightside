@@ -6,6 +6,7 @@ import '../person/Person.css';
 const Vehicle = ({ vehicles, makeFavorite, favorites }) => {
   let allCards = vehicles.map(vehicle => {
     const classString = `card-${favorites.includes(vehicle) && 'faved'}`;
+    const faveStatus = classString === 'card-faved' ? 'Unfavorite' : 'Favorite';
     return (
       <article
         className={classString}
@@ -25,7 +26,7 @@ const Vehicle = ({ vehicles, makeFavorite, favorites }) => {
           onClick={() => makeFavorite(vehicle.created, 'vehicles')}
           className='favorite bottom-card'
         >
-          Favorite
+          {faveStatus}
         </p>
       </article>
     );

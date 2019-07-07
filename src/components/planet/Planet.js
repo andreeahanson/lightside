@@ -6,6 +6,7 @@ import '../person/Person.css';
 const Planet = ({ planets, makeFavorite, favorites }) => {
   let allCards = planets.map(planet => {
     const classString = `card-${favorites.includes(planet) && 'faved'}`;
+    const faveStatus = classString === 'card-faved' ? 'Unfavorite' : 'Favorite';
     return (
       <article
         className={classString}
@@ -21,7 +22,7 @@ const Planet = ({ planets, makeFavorite, favorites }) => {
           <p>Population: {planet.population}</p>
         </div>
         <hr />
-        <p className='favorite bottom-card'>Favorite</p>
+        <p className='favorite bottom-card'>{faveStatus}</p>
       </article>
     );
   });

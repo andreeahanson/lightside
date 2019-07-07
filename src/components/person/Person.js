@@ -5,6 +5,7 @@ import './Person.css';
 const Person = ({ people, makeFavorite, favorites }) => {
   let allCards = people.map(person => {
     const classString = `card-${favorites.includes(person) && 'faved'}`;
+    const faveStatus = classString === 'card-faved' ? 'Unfavorite' : 'Favorite';
     return (
       <article
         className={classString}
@@ -18,10 +19,10 @@ const Person = ({ people, makeFavorite, favorites }) => {
           <p>Birth Year: {person.birth_year}</p>
           <p>Gender: {person.gender}</p>
           <p>Height: {person.height}</p>
-          <p>Hair Ccolor: {person.hair_color}</p>
+          <p>Hair Color: {person.hair_color}</p>
         </div>
         <hr />
-        <p className='favorite bottom-card'>Favorite</p>
+        <p className='favorite bottom-card'>{faveStatus}</p>
       </article>
     );
   });
