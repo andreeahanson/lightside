@@ -20,6 +20,23 @@ class App extends Component {
     };
   }
 
+  // massageData = forMassage => {
+  //   forMassage.map(object => {
+  //     return {
+  //       title: object.title,
+  //       created: object.created,
+  //       name: object.name,
+  //       birth_year: object.birth_year || null,
+  //       gender: object.gender || null,
+  //       height: object.height || null,
+  //       hair_color: object.hair_color || null,
+  //       terrain: object.terrain || null,
+  //       diameter: object.diameter || null,
+  //       population: object.population || null,
+  //     }
+  //   });
+  // }
+
   getData = () => {
     const tinyUrls = 'https://swapi.co/api/';
     const urls = [
