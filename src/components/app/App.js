@@ -4,7 +4,6 @@ import { Route, NavLink } from 'react-router-dom';
 import Card from '../card/Card';
 import Landing from '../landing/Landing';
 import HeaderFav from '../headerFav/HeaderFav';
-// import Favorite from '../favorite/Favorite';
 
 class App extends Component {
   constructor() {
