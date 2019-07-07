@@ -3,12 +3,13 @@ import PropTypes from 'prop-types';
 import './Card.css';
 
 const Card = ({ data, toggleFavorite, favorites, type }) => {
-  if(!favorites.length && !data.length) {
-    return <h2>Have any favorites?</h2>
+  if (!favorites.length && !data.length) {
+    return <h2>Have any favorites?</h2>;
   } else {
     let allCards = data.map(datum => {
       const classString = `card-${favorites.includes(datum) && 'faved'}`;
-      const faveStatus = classString === 'card-faved' ? 'Unfavorite' : 'Favorite';
+      const faveStatus =
+        classString === 'card-faved' ? 'Unfavorite' : 'Favorite';
       return (
         <article
           className={classString}
@@ -36,7 +37,6 @@ const Card = ({ data, toggleFavorite, favorites, type }) => {
       );
     });
     return allCards;
-
   }
 };
 

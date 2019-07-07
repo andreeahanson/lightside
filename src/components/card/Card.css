@@ -15,7 +15,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-attachment:fixed;
+  background-attachment: fixed;
   background-color: rgba(12, 25, 46, 0.9);
 }
 
@@ -47,36 +47,48 @@ hr {
 }
 
 .card-faved {
-	position: relative;
-	background: linear-gradient(0deg, rgba(12, 25, 46, 0.9), #272727);
+  position: relative;
+  background: linear-gradient(0deg, rgba(12, 25, 46, 0.9), #272727);
 }
 
-.card-faved:before, .card-faved:after {
-	content: '';
-	position: absolute;
-	left: -2px;
-	top: -2px;
-	background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00,#ffff00, #ff0000, #fb0094, 
-		#0000ff, #00ff00,#ffff00, #ff0000);
-	background-size: 400%;
-	width: calc(100% + 4px);
-	height: calc(100% + 4px);
-	z-index: -1;
-	animation: steam 20s linear infinite;
+.card-faved:before,
+.card-faved:after {
+  content: '';
+  position: absolute;
+  left: -2px;
+  top: -2px;
+  background: linear-gradient(
+    45deg,
+    #fb0094,
+    #0000ff,
+    #00ff00,
+    #ffff00,
+    #ff0000,
+    #fb0094,
+    #0000ff,
+    #00ff00,
+    #ffff00,
+    #ff0000
+  );
+  background-size: 400%;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  z-index: -1;
+  animation: steam 20s linear infinite;
 }
 
 @keyframes steam {
-	0% {
-		background-position: 0 0;
-	}
-	50% {
-		background-position: 400% 0;
-	}
-	100% {
-		background-position: 0 0;
-	}
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
 }
 
 .card-faved:after {
-	filter: blur(50px);
+  filter: blur(50px);
 }
