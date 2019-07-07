@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Route, NavLink } from 'react-router-dom';
-// import CardContainer from '../cardContainer/CardContainer';
 import Person from '../person/Person';
 import Planet from '../planet/Planet';
 import Vehicle from '../vehicle/Vehicle';
-// import IntroStory from '../introStory/IntroStory';
 import Landing from '../landing/Landing';
 import HeaderFav from '../headerFav/HeaderFav';
 import Favorite from '../favorite/Favorite';
-// import sample from './sample';
 
 class App extends Component {
   constructor() {
