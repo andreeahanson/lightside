@@ -7,7 +7,7 @@ const Vehicle = ({ vehicles, makeFavorite, favorites }) => {
   let allCards = vehicles.map(vehicle => {
     const classString=`card-${favorites.includes(vehicle) && 'faved'}`
     return (
-      <article className={classString} key={vehicle.created} id={vehicle.created}>
+      <article className={classString} key={vehicle.created} id={vehicle.created} onClick={()=>makeFavorite(vehicle.created, 'vehicles')}>
         <h3 className="top-card">{vehicle.name}</h3>
         <hr></hr>
         <div className="mid-card">

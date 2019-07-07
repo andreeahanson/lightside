@@ -7,7 +7,7 @@ const Person = ({ people, makeFavorite, favorites }) => {
   let allCards = people.map(person => {
     const classString=`card-${favorites.includes(person) && 'faved'}`
     return (
-      <article className={classString} key={person.created} id={person.created}>
+      <article className={classString} key={person.created} id={person.created} onClick={()=>makeFavorite(person.created, 'people')}>
         <h3 className="top-card">{person.name}</h3>
         <hr></hr>
         <div className="mid-card">
@@ -17,7 +17,7 @@ const Person = ({ people, makeFavorite, favorites }) => {
         <p>{person.hair_color}</p>
         </div>
         <hr></hr>
-        <p onClick={()=>makeFavorite(person.created, 'people')} className='favorite bottom-card'>Favorite</p>
+        <p  className='favorite bottom-card'>Favorite</p>
       </article>
     );
   });

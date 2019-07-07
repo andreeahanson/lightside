@@ -8,7 +8,7 @@ const Planet = ({ planets, makeFavorite, favorites }) => {
   let allCards = planets.map(planet => {
     const classString=`card-${favorites.includes(planet) && 'faved'}`
     return (
-      <article className={classString} key={planet.created} id={planet.created}>
+      <article className={classString} key={planet.created} id={planet.created} onClick={()=>makeFavorite(planet.created, 'planets')}>
         <h3 className='top-card'>{planet.name}</h3>
         <hr></hr>
         <div className='mid-card'>
@@ -17,7 +17,7 @@ const Planet = ({ planets, makeFavorite, favorites }) => {
           <p>{planet.population}</p>
         </div>
         <hr></hr>
-        <p onClick={()=>makeFavorite(planet.created, 'planets')} className='favorite bottom-card'>Favorite</p>
+        <p  className='favorite bottom-card'>Favorite</p>
       </article>
     );
   });
