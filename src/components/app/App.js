@@ -4,7 +4,7 @@ import { Route, NavLink } from 'react-router-dom';
 import Card from '../card/Card';
 import Landing from '../landing/Landing';
 import HeaderFav from '../headerFav/HeaderFav';
-import Favorite from '../favorite/Favorite';
+// import Favorite from '../favorite/Favorite';
 
 class App extends Component {
   constructor() {
@@ -136,9 +136,11 @@ class App extends Component {
             <Route
               path='/favorites'
               render={() => (
-                <Favorite
+                <Card
+                  data={this.state.favorites}
                   favorites={this.state.favorites}
                   toggleFavorite={this.toggleFavorite}
+                  type='favorites'
                 />
               )}
             />
