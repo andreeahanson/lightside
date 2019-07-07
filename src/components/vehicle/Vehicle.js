@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './Vehicle.css';
 import '../person/Person.css';
 
-const Vehicle = ({ vehicles, makeFavorite, favorites }) => {
+const Vehicle = ({ vehicles, toggleFavorite, favorites }) => {
   let allCards = vehicles.map(vehicle => {
     const classString = `card-${favorites.includes(vehicle) && 'faved'}`;
     const faveStatus = classString === 'card-faved' ? 'Unfavorite' : 'Favorite';
@@ -12,7 +12,7 @@ const Vehicle = ({ vehicles, makeFavorite, favorites }) => {
         className={classString}
         key={vehicle.created}
         id={vehicle.created}
-        onClick={() => makeFavorite(vehicle.created, 'vehicles', classString)}
+        onClick={() => toggleFavorite(vehicle.created, 'vehicles', classString)}
       >
         <h3 className='top-card'>{vehicle.name}</h3>
         <hr />
@@ -22,12 +22,7 @@ const Vehicle = ({ vehicles, makeFavorite, favorites }) => {
           <p>Passengers: {vehicle.passengers}</p>
         </div>
         <hr />
-        <p
-          onClick={() => makeFavorite(vehicle.created, 'vehicles')}
-          className='favorite bottom-card'
-        >
-          {faveStatus}
-        </p>
+        <p className='favorite bottom-card'>{faveStatus}</p>
       </article>
     );
   });

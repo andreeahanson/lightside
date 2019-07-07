@@ -43,8 +43,7 @@ class App extends Component {
     this.getData();
   };
 
-  makeFavorite = (id, type, classString) => {
-    console.log(classString);
+  toggleFavorite = (id, type, classString) => {
     if (classString === 'card-false') {
       const newFavorite = this.state[type].find(card => card.created === id);
       let addedFavorites = [...new Set([...this.state.favorites, newFavorite])];
@@ -87,7 +86,7 @@ class App extends Component {
                 <Person
                   people={this.state.people}
                   favorites={this.state.favorites}
-                  makeFavorite={this.makeFavorite}
+                  toggleFavorite={this.toggleFavorite}
                 />
               )}
             />
@@ -97,7 +96,7 @@ class App extends Component {
                 <Planet
                   planets={this.state.planets}
                   favorites={this.state.favorites}
-                  makeFavorite={this.makeFavorite}
+                  toggleFavorite={this.toggleFavorite}
                 />
               )}
             />
@@ -107,7 +106,7 @@ class App extends Component {
                 <Vehicle
                   vehicles={this.state.vehicles}
                   favorites={this.state.favorites}
-                  makeFavorite={this.makeFavorite}
+                  toggleFavorite={this.toggleFavorite}
                 />
               )}
             />
@@ -116,7 +115,7 @@ class App extends Component {
               render={() => (
                 <Favorite
                   favorites={this.state.favorites}
-                  makeFavorite={this.makeFavorite}
+                  toggleFavorite={this.toggleFavorite}
                 />
               )}
             />

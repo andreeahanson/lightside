@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Favorite.css';
 
-const Favorite = ({ favorites, makeFavorite }) => {
+const Favorite = ({ favorites, toggleFavorite }) => {
   let allCards = favorites.map(favorite => {
     const classString = `card-${favorites.includes(favorite) && 'faved'}`;
     const faveStatus = classString === 'card-faved' ? 'Unfavorite' : 'Favorite';
@@ -12,7 +12,9 @@ const Favorite = ({ favorites, makeFavorite }) => {
           className={classString}
           key={favorite.created}
           id={favorite.created}
-          onClick={() => makeFavorite(favorite.created, 'people', classString)}
+          onClick={() =>
+            toggleFavorite(favorite.created, 'people', classString)
+          }
         >
           <h3 className='top-card'>{favorite.name}</h3>
           <hr />
@@ -32,7 +34,9 @@ const Favorite = ({ favorites, makeFavorite }) => {
           className={classString}
           key={favorite.created}
           id={favorite.created}
-          onClick={() => makeFavorite(favorite.created, 'planets', classString)}
+          onClick={() =>
+            toggleFavorite(favorite.created, 'planets', classString)
+          }
         >
           <h3 className='top-card'>{favorite.name}</h3>
           <hr />
@@ -52,7 +56,7 @@ const Favorite = ({ favorites, makeFavorite }) => {
           key={favorite.created}
           id={favorite.created}
           onClick={() =>
-            makeFavorite(favorite.created, 'vehicles', classString)
+            toggleFavorite(favorite.created, 'vehicles', classString)
           }
         >
           <h3 className='top-card'>{favorite.name}</h3>

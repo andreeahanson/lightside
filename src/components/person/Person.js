@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Person.css';
 
-const Person = ({ people, makeFavorite, favorites }) => {
+const Person = ({ people, toggleFavorite, favorites }) => {
   let allCards = people.map(person => {
     const classString = `card-${favorites.includes(person) && 'faved'}`;
     const faveStatus = classString === 'card-faved' ? 'Unfavorite' : 'Favorite';
@@ -11,7 +11,7 @@ const Person = ({ people, makeFavorite, favorites }) => {
         className={classString}
         key={person.created}
         id={person.created}
-        onClick={() => makeFavorite(person.created, 'people', classString)}
+        onClick={() => toggleFavorite(person.created, 'people', classString)}
       >
         <h3 className='top-card'>{person.name}</h3>
         <hr />
