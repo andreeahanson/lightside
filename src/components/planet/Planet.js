@@ -1,17 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Planet.css';
+import '../person/Person.css';
 
-const Planet = ({ planets, makeFavorite }) => {
+const Planet = ({ planets, makeFavorite, favorites }) => {
   // console.log(people);
   let allCards = planets.map(planet => {
+    const classString=`card-${favorites.includes(planet) && 'faved'}`
     return (
-      <article className='card planet' key={planet.created} id={planet.created}>
-        <h3>{planet.name}</h3>
-        <p>{planet.terrain}</p>
-        <p>{planet.diameter}</p>
-        <p>{planet.population}</p>
-        <button onClick={()=>makeFavorite(planet.created, 'planets')} className='favorite'>Favorite</button>
+      <article className={classString} key={planet.created} id={planet.created} onClick={()=>makeFavorite(planet.created, 'planets')}>
+        <h3 className='top-card'>{planet.name}</h3>
+        <hr></hr>
+        <div className='mid-card'>
+          <p>{planet.terrain}</p>
+          <p>{planet.diameter}</p>
+          <p>{planet.population}</p>
+        </div>
+        <hr></hr>
+        <p  className='favorite bottom-card'>Favorite</p>
       </article>
     );
   });

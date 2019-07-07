@@ -1,43 +1,55 @@
 import React from 'react';
-
 import PropTypes from 'prop-types';
 import './Favorite.css';
-import GreenJedi from '../../images/Sensibleworld-Starwars-Lightsaber-Green.svg';
-import RedJedi from '../../images/Sensibleworld-Starwars-Lightsaber-Red.svg';
+
 
 const Favorite = ({ favorites }) => {
 
   let allCards = favorites.map(favorite => {
+    const classString =`card-${favorites.includes(favorite) && 'faved'}`
     if(favorite.birth_year) {
       return (
-        <article className='card person' key={favorite.created} id={favorite.created}>
-          <h3>{favorite.name}</h3>
-          <p>{favorite.birth_year}</p>
-          <p>{favorite.gender}</p>
-          <p>{favorite.height}</p>
-          <p>{favorite.hair_color}</p>
-          <img className='favorite' src={GreenJedi} alt=''/>
-        </article>
+        <article className={classString} key={favorite.created} id={favorite.created}>
+        <h3 className="top-card">{favorite.name}</h3>
+        <hr></hr>
+        <div className="mid-card">
+        <p>{favorite.birth_year}</p>
+        <p>{favorite.gender}</p>
+        <p>{favorite.height}</p>
+        <p>{favorite.hair_color}</p>
+        </div>
+        <hr></hr>
+        <p className='favorite bottom-card unfav'>Unfavorite</p>
+      </article>
       );
     } else if (favorite.terrain) {
       return (
-        <article className='card planet' key={favorite.created}>
-          <h3>{favorite.name}</h3>
-          <p>{favorite.terrain}</p>
-          <p>{favorite.diameter}</p>
-          <p>{favorite.population}</p>
-          <button className='favorite'>Favorite</button>
+        <article className={classString} key={favorite.created} id={favorite.created}>
+          <h3 className='top-card'>{favorite.name}</h3>
+          <hr></hr>
+          <div className='mid-card'>
+            <p>{favorite.terrain}</p>
+            <p>{favorite.diameter}</p>
+            <p>{favorite.population}</p>
+          </div>
+          <hr></hr>
+          <p className='favorite bottom-card unfav'>Unfavorite</p>
         </article>
       );
     } else {
+      console.log("MODEL", favorite)
       return (
-        <article className='card vehicle' key={favorite.created}>
-          <h3>{favorite.name}</h3>
-          <p>{favorite.model}</p>
-          <p>{favorite.vehicle_class}</p>
-          <p>{favorite.passengers}</p>
-          <button className='favorite'>Favorite</button>
-        </article>
+        <article className={classString} key={favorite.created} id={favorite.created}>
+          <h3 className="top-card">{favorite.name}</h3>
+          <hr></hr>
+          <div className="mid-card">
+            <p>{favorite.model}</p>
+            <p>{favorite.vehicle_class}</p>
+            <p>{favorite.passengers}</p>
+          </div>
+          <hr></hr>
+          <p className='favorite bottom-card unfav'>Unfavorite</p>
+      </article>
       );
     }
   });

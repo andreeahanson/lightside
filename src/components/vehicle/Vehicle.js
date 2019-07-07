@@ -1,17 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Vehicle.css';
+import '../person/Person.css';
 
-const Vehicle = ({ vehicles, makeFavorite }) => {
-  // console.log(people);
+const Vehicle = ({ vehicles, makeFavorite, favorites }) => {
   let allCards = vehicles.map(vehicle => {
+    const classString=`card-${favorites.includes(vehicle) && 'faved'}`
     return (
-      <article className='card vehicle' key={vehicle.created} id={vehicle.created}>
-        <h3>{vehicle.name}</h3>
-        <p>{vehicle.model}</p>
-        <p>{vehicle.vehicle_class}</p>
-        <p>{vehicle.passengers}</p>
-        <button onClick={()=>makeFavorite(vehicle.created, 'vehicles')} className='favorite'>Favorite</button>
+      <article className={classString} key={vehicle.created} id={vehicle.created} onClick={()=>makeFavorite(vehicle.created, 'vehicles')}>
+        <h3 className="top-card">{vehicle.name}</h3>
+        <hr></hr>
+        <div className="mid-card">
+          <p>{vehicle.model}</p>
+          <p>{vehicle.vehicle_class}</p>
+          <p>{vehicle.passengers}</p>
+        </div>
+        <hr></hr>
+        <p onClick={()=>makeFavorite(vehicle.created, 'vehicles')} className='favorite bottom-card'>Favorite</p>
       </article>
     );
   });
