@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Route, NavLink } from 'react-router-dom';
-import Person from '../person/Person';
-import Planet from '../planet/Planet';
-import Vehicle from '../vehicle/Vehicle';
+import Card from '../card/Card';
 import Landing from '../landing/Landing';
 import HeaderFav from '../headerFav/HeaderFav';
 import Favorite from '../favorite/Favorite';
@@ -20,22 +18,28 @@ class App extends Component {
     };
   }
 
-  // massageData = forMassage => {
-  //   forMassage.map(object => {
-  //     return {
-  //       title: object.title,
-  //       created: object.created,
-  //       name: object.name,
-  //       birth_year: object.birth_year || null,
-  //       gender: object.gender || null,
-  //       height: object.height || null,
-  //       hair_color: object.hair_color || null,
-  //       terrain: object.terrain || null,
-  //       diameter: object.diameter || null,
-  //       population: object.population || null,
-  //     }
-  //   });
-  // }
+  cleanUpData = initialData => {
+    const relevantData = initialData.results.map(object => {
+      return {
+        created: object.created,
+        title: object.title || null,
+        name: object.name || null,
+        birth_year: object.birth_year || null,
+        gender: object.gender || null,
+        height: object.height || null,
+        hair_color: object.hair_color || null,
+        terrain: object.terrain || null,
+        diameter: object.diameter || null,
+        population: object.population || null,
+        model: object.model || null,
+        vehicle_class: object.vehicle_class || null,
+        passengers: object.passengers || null,
+        opening_crawl: object.opening_crawl || null,
+        release_date: object.release_date || null
+      };
+    });
+    return { ...initialData, results: relevantData };
+  };
 
   getData = () => {
     const tinyUrls = 'https://swapi.co/api/';
@@ -49,7 +53,9 @@ class App extends Component {
       return fetch(url.link)
         .then(response => response.json())
         .then(data => ({ ...data, title: url.title }))
+        .then(initialData => this.cleanUpData(initialData))
         .then(final => this.setState({ [final.title]: final.results }));
+      // .then(() => console.log(this.state));
     });
   };
 
@@ -97,30 +103,33 @@ class App extends Component {
             <Route
               path='/people'
               render={() => (
-                <Person
-                  people={this.state.people}
+                <Card
+                  data={this.state.people}
                   favorites={this.state.favorites}
                   toggleFavorite={this.toggleFavorite}
+                  type='people'
                 />
               )}
             />
             <Route
               path='/planets'
               render={() => (
-                <Planet
-                  planets={this.state.planets}
+                <Card
+                  data={this.state.planets}
                   favorites={this.state.favorites}
                   toggleFavorite={this.toggleFavorite}
+                  type='planets'
                 />
               )}
             />
             <Route
               path='/vehicles'
               render={() => (
-                <Vehicle
-                  vehicles={this.state.vehicles}
+                <Card
+                  data={this.state.vehicles}
                   favorites={this.state.favorites}
                   toggleFavorite={this.toggleFavorite}
+                  type='vehicles'
                 />
               )}
             />
