@@ -2,54 +2,73 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Favorite.css';
 
-
-const Favorite = ({ favorites }) => {
-
+const Favorite = ({ favorites, toggleFavorite }) => {
   let allCards = favorites.map(favorite => {
-    const classString =`card-${favorites.includes(favorite) && 'faved'}`
-    if(favorite.birth_year) {
+    const classString = `card-${favorites.includes(favorite) && 'faved'}`;
+    const faveStatus = classString === 'card-faved' ? 'Unfavorite' : 'Favorite';
+    if (favorite.birth_year) {
       return (
-        <article className={classString} key={favorite.created} id={favorite.created}>
-        <h3 className="top-card">{favorite.name}</h3>
-        <hr></hr>
-        <div className="mid-card">
-        <p>{favorite.birth_year}</p>
-        <p>{favorite.gender}</p>
-        <p>{favorite.height}</p>
-        <p>{favorite.hair_color}</p>
-        </div>
-        <hr></hr>
-        <p className='favorite bottom-card unfav'>Unfavorite</p>
-      </article>
+        <article
+          className={classString}
+          key={favorite.created}
+          id={favorite.created}
+          onClick={() =>
+            toggleFavorite(favorite.created, 'people', classString)
+          }
+        >
+          <h3 className='top-card'>{favorite.name}</h3>
+          <hr />
+          <div className='mid-card'>
+            <p>Birth Year: {favorite.birth_year}</p>
+            <p>Gender: {favorite.gender}</p>
+            <p>Height: {favorite.height}</p>
+            <p>Hair Ccolor: {favorite.hair_color}</p>
+          </div>
+          <hr />
+          <p className='favorite bottom-card unfav'>{faveStatus}</p>
+        </article>
       );
     } else if (favorite.terrain) {
       return (
-        <article className={classString} key={favorite.created} id={favorite.created}>
+        <article
+          className={classString}
+          key={favorite.created}
+          id={favorite.created}
+          onClick={() =>
+            toggleFavorite(favorite.created, 'planets', classString)
+          }
+        >
           <h3 className='top-card'>{favorite.name}</h3>
-          <hr></hr>
+          <hr />
           <div className='mid-card'>
-            <p>{favorite.terrain}</p>
-            <p>{favorite.diameter}</p>
-            <p>{favorite.population}</p>
+            <p>Terrain: {favorite.terrain}</p>
+            <p>Diameter: {favorite.diameter}</p>
+            <p>Population: {favorite.population}</p>
           </div>
-          <hr></hr>
-          <p className='favorite bottom-card unfav'>Unfavorite</p>
+          <hr />
+          <p className='favorite bottom-card unfav'>{faveStatus}</p>
         </article>
       );
     } else {
-      console.log("MODEL", favorite)
       return (
-        <article className={classString} key={favorite.created} id={favorite.created}>
-          <h3 className="top-card">{favorite.name}</h3>
-          <hr></hr>
-          <div className="mid-card">
-            <p>{favorite.model}</p>
-            <p>{favorite.vehicle_class}</p>
-            <p>{favorite.passengers}</p>
+        <article
+          className={classString}
+          key={favorite.created}
+          id={favorite.created}
+          onClick={() =>
+            toggleFavorite(favorite.created, 'vehicles', classString)
+          }
+        >
+          <h3 className='top-card'>{favorite.name}</h3>
+          <hr />
+          <div className='mid-card'>
+            <p>Model: {favorite.model}</p>
+            <p>Class: {favorite.vehicle_class}</p>
+            <p>Passengers: {favorite.passengers}</p>
           </div>
-          <hr></hr>
-          <p className='favorite bottom-card unfav'>Unfavorite</p>
-      </article>
+          <hr />
+          <p className='favorite bottom-card unfav'>{faveStatus}</p>
+        </article>
       );
     }
   });

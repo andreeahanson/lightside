@@ -2,22 +2,27 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Person.css';
 
-const Person = ({ people, makeFavorite, favorites }) => {
-  console.log(favorites);
+const Person = ({ people, toggleFavorite, favorites }) => {
   let allCards = people.map(person => {
-    const classString=`card-${favorites.includes(person) && 'faved'}`
+    const classString = `card-${favorites.includes(person) && 'faved'}`;
+    const faveStatus = classString === 'card-faved' ? 'Unfavorite' : 'Favorite';
     return (
-      <article className={classString} key={person.created} id={person.created} onClick={()=>makeFavorite(person.created, 'people')}>
-        <h3 className="top-card">{person.name}</h3>
-        <hr></hr>
-        <div className="mid-card">
-        <p>{person.birth_year}</p>
-        <p>{person.gender}</p>
-        <p>{person.height}</p>
-        <p>{person.hair_color}</p>
+      <article
+        className={classString}
+        key={person.created}
+        id={person.created}
+        onClick={() => toggleFavorite(person.created, 'people', classString)}
+      >
+        <h3 className='top-card'>{person.name}</h3>
+        <hr />
+        <div className='mid-card'>
+          <p>Birth Year: {person.birth_year}</p>
+          <p>Gender: {person.gender}</p>
+          <p>Height: {person.height} cm</p>
+          <p>Hair Color: {person.hair_color}</p>
         </div>
-        <hr></hr>
-        <p  className='favorite bottom-card'>Favorite</p>
+        <hr />
+        <p className='favorite bottom-card'>{faveStatus}</p>
       </article>
     );
   });

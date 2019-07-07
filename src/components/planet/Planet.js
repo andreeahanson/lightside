@@ -3,21 +3,26 @@ import PropTypes from 'prop-types';
 import './Planet.css';
 import '../person/Person.css';
 
-const Planet = ({ planets, makeFavorite, favorites }) => {
-  // console.log(people);
+const Planet = ({ planets, toggleFavorite, favorites }) => {
   let allCards = planets.map(planet => {
-    const classString=`card-${favorites.includes(planet) && 'faved'}`
+    const classString = `card-${favorites.includes(planet) && 'faved'}`;
+    const faveStatus = classString === 'card-faved' ? 'Unfavorite' : 'Favorite';
     return (
-      <article className={classString} key={planet.created} id={planet.created} onClick={()=>makeFavorite(planet.created, 'planets')}>
+      <article
+        className={classString}
+        key={planet.created}
+        id={planet.created}
+        onClick={() => toggleFavorite(planet.created, 'planets', classString)}
+      >
         <h3 className='top-card'>{planet.name}</h3>
-        <hr></hr>
+        <hr />
         <div className='mid-card'>
-          <p>{planet.terrain}</p>
-          <p>{planet.diameter}</p>
-          <p>{planet.population}</p>
+          <p>Terrain: {planet.terrain}</p>
+          <p>Diameter: {planet.diameter}</p>
+          <p>Population: {planet.population}</p>
         </div>
-        <hr></hr>
-        <p  className='favorite bottom-card'>Favorite</p>
+        <hr />
+        <p className='favorite bottom-card'>{faveStatus}</p>
       </article>
     );
   });

@@ -1,20 +1,16 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Route, NavLink } from 'react-router-dom';
-// import CardContainer from '../cardContainer/CardContainer';
 import Person from '../person/Person';
 import Planet from '../planet/Planet';
 import Vehicle from '../vehicle/Vehicle';
-// import IntroStory from '../introStory/IntroStory';
 import Landing from '../landing/Landing';
 import HeaderFav from '../headerFav/HeaderFav';
 import Favorite from '../favorite/Favorite';
-// import sample from './sample';
 
 class App extends Component {
   constructor() {
     super();
-    // this.test = this.test();
     this.state = {
       people: [],
       planets: [],
@@ -23,6 +19,23 @@ class App extends Component {
       favorites: []
     };
   }
+
+  // massageData = forMassage => {
+  //   forMassage.map(object => {
+  //     return {
+  //       title: object.title,
+  //       created: object.created,
+  //       name: object.name,
+  //       birth_year: object.birth_year || null,
+  //       gender: object.gender || null,
+  //       height: object.height || null,
+  //       hair_color: object.hair_color || null,
+  //       terrain: object.terrain || null,
+  //       diameter: object.diameter || null,
+  //       population: object.population || null,
+  //     }
+  //   });
+  // }
 
   getData = () => {
     const tinyUrls = 'https://swapi.co/api/';
@@ -44,30 +57,37 @@ class App extends Component {
     this.getData();
   };
 
-  makeFavorite = (id, type) => {
-    const newFavorite = this.state[type].find(card => {
-      return card.created === id
-    })
-    let addedFavorites = [...new Set([...this.state.favorites, newFavorite])]
-    this.setState({favorites: addedFavorites}, () => console.log(this.state.favorites))
-  }
+  toggleFavorite = (id, type, classString) => {
+    if (classString === 'card-false') {
+      const newFavorite = this.state[type].find(card => card.created === id);
+      let addedFavorites = [...new Set([...this.state.favorites, newFavorite])];
+      this.setState({ favorites: addedFavorites });
+    } else {
+      const removedFavorites = this.state.favorites.filter(
+        card => card.created !== id
+      );
+      this.setState({ favorites: removedFavorites });
+    }
+  };
 
   render = () => {
-    // const loading = !this.state.films.length && <img src='https://loading.io/spinners/flickr/lg.orbit-balls-loading-gif.gif' alt='loading' />;
     return (
       <main>
         <div className='header'>
-          <HeaderFav 
-          favorites={this.state.favorites.length}
-          />
+          <HeaderFav favorites={this.state.favorites.length} />
           <nav className='nav-links'>
-            <NavLink to='/people' className='nav-button'>People</NavLink>
-            <NavLink to='/planets' className='nav-button'>Planets</NavLink>
-            <NavLink to='/vehicles' className='nav-button'>Vehicles</NavLink>
+            <NavLink to='/people' className='nav-button'>
+              People
+            </NavLink>
+            <NavLink to='/planets' className='nav-button'>
+              Planets
+            </NavLink>
+            <NavLink to='/vehicles' className='nav-button'>
+              Vehicles
+            </NavLink>
           </nav>
         </div>
         <section>
-          {/* {loading} */}
           <Route
             exact
             path='/'
@@ -76,26 +96,42 @@ class App extends Component {
           <div className='card-container'>
             <Route
               path='/people'
-              render={() => <Person people={this.state.people}
-              favorites={this.state.favorites}
-              makeFavorite={this.makeFavorite} />}
+              render={() => (
+                <Person
+                  people={this.state.people}
+                  favorites={this.state.favorites}
+                  toggleFavorite={this.toggleFavorite}
+                />
+              )}
             />
             <Route
               path='/planets'
-              render={() => <Planet planets={this.state.planets} 
-              favorites={this.state.favorites}
-              makeFavorite={this.makeFavorite}/>}
+              render={() => (
+                <Planet
+                  planets={this.state.planets}
+                  favorites={this.state.favorites}
+                  toggleFavorite={this.toggleFavorite}
+                />
+              )}
             />
             <Route
               path='/vehicles'
-              render={() => <Vehicle vehicles={this.state.vehicles} 
-              favorites={this.state.favorites}
-              makeFavorite={this.makeFavorite}/>}
+              render={() => (
+                <Vehicle
+                  vehicles={this.state.vehicles}
+                  favorites={this.state.favorites}
+                  toggleFavorite={this.toggleFavorite}
+                />
+              )}
             />
             <Route
               path='/favorites'
-              render={() => <Favorite favorites={this.state.favorites} 
-              />}
+              render={() => (
+                <Favorite
+                  favorites={this.state.favorites}
+                  toggleFavorite={this.toggleFavorite}
+                />
+              )}
             />
           </div>
         </section>
