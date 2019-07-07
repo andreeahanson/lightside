@@ -46,7 +46,6 @@ const Favorite = ({ favorites, makeFavorite }) => {
         </article>
       );
     } else {
-      console.log('MODEL', favorite);
       return (
         <article
           className={classString}

@@ -113,7 +113,12 @@ class App extends Component {
             />
             <Route
               path='/favorites'
-              render={() => <Favorite favorites={this.state.favorites} makeFavorite={this.makeFavorite} />}
+              render={() => (
+                <Favorite
+                  favorites={this.state.favorites}
+                  makeFavorite={this.makeFavorite}
+                />
+              )}
             />
           </div>
         </section>
