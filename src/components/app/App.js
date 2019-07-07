@@ -77,16 +77,19 @@ class App extends Component {
             <Route
               path='/people'
               render={() => <Person people={this.state.people}
+              favorites={this.state.favorites}
               makeFavorite={this.makeFavorite} />}
             />
             <Route
               path='/planets'
               render={() => <Planet planets={this.state.planets} 
+              favorites={this.state.favorites}
               makeFavorite={this.makeFavorite}/>}
             />
             <Route
               path='/vehicles'
               render={() => <Vehicle vehicles={this.state.vehicles} 
+              favorites={this.state.favorites}
               makeFavorite={this.makeFavorite}/>}
             />
             <Route

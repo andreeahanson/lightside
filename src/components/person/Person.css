@@ -2,23 +2,47 @@
   height: 40px;
   width: 40px;
   align-self: center;
-  
 }
 
-.card {
+.card-false,
+.card-faved {
   display: flex;
   flex-direction: column;
   text-align: center;
   width: 90%;
   margin: 10px;
+  height: 300px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-attachment:fixed;
-  border-radius: 5%;
+  background-color: rgba(12, 25, 46, 0.9);
+  border-radius: 3%;
 }
 
-.person {
+.card-faved {
+  border: 3px solid white;
+}
+
+hr {
+  width: 100%;
+}
+
+.top-card {
+  height: 50px;
+}
+
+.mid-card {
+  height: 300px;
+}
+
+.bottom-card {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+/* .person {
   background-image: url('http://bwncy.com/g/2/in/interior-design-futuristic-lab-brick-fireplace-mantels-house-inside-patterns-for-backsplash-in-kitchens-computer-room-luxury-table-environment-contemporary-wood-architectural-details.jpg');
   
 }
@@ -29,4 +53,40 @@
 
 .vehicle {
     background-image: url('https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/Vtapge4oeikxz0vzf/sci-fi-gate-green-screen_4vyxiwvtg__F0003.png');
+} */
+
+
+.card-faved {
+	position: relative;
+	background: linear-gradient(0deg, rgba(12, 25, 46, 0.9), #272727);
+}
+
+.card-faved:before, .card-faved:after {
+	content: '';
+	position: absolute;
+	left: -2px;
+	top: -2px;
+	background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00,#ffff00, #ff0000, #fb0094, 
+		#0000ff, #00ff00,#ffff00, #ff0000);
+	background-size: 400%;
+	width: calc(100% + 4px);
+	height: calc(100% + 4px);
+	z-index: -1;
+	animation: steam 20s linear infinite;
+}
+
+@keyframes steam {
+	0% {
+		background-position: 0 0;
+	}
+	50% {
+		background-position: 400% 0;
+	}
+	100% {
+		background-position: 0 0;
+	}
+}
+
+.card-faved:after {
+	filter: blur(50px);
 }

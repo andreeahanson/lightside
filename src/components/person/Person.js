@@ -1,20 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Person.css';
-import GreenJedi from '../../images/Sensibleworld-Starwars-Lightsaber-Green.svg';
-import RedJedi from '../../images/Sensibleworld-Starwars-Lightsaber-Red.svg';
 
-const Person = ({ people, makeFavorite }) => {
-  // console.log(people);
+const Person = ({ people, makeFavorite, favorites }) => {
+  console.log(favorites);
   let allCards = people.map(person => {
+    const classString=`card-${favorites.includes(person) && 'faved'}`
     return (
-      <article className='card person' key={person.created} id={person.created}>
-        <h3>{person.name}</h3>
+      <article className={classString} key={person.created} id={person.created}>
+        <h3 className="top-card">{person.name}</h3>
+        <hr></hr>
+        <div className="mid-card">
         <p>{person.birth_year}</p>
         <p>{person.gender}</p>
         <p>{person.height}</p>
         <p>{person.hair_color}</p>
-        <img onClick={()=>makeFavorite(person.created, 'people')} className='favorite' src={GreenJedi} alt=''/>
+        </div>
+        <hr></hr>
+        <p onClick={()=>makeFavorite(person.created, 'people')} className='favorite bottom-card'>Favorite</p>
       </article>
     );
   });
