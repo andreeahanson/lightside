@@ -17,12 +17,7 @@
   background-position: center;
   background-attachment:fixed;
   background-color: rgba(12, 25, 46, 0.9);
-  /* border-radius: 3%; */
 }
-
-/* .card-faved {
-  border: 3px solid white;
-} */
 
 hr {
   width: 100%;
@@ -42,19 +37,14 @@ hr {
   justify-content: center;
 }
 
-/* .person {
-  background-image: url('http://bwncy.com/g/2/in/interior-design-futuristic-lab-brick-fireplace-mantels-house-inside-patterns-for-backsplash-in-kitchens-computer-room-luxury-table-environment-contemporary-wood-architectural-details.jpg');
-  
+.favorite {
+  font-size: 15px;
 }
 
-.planet {
-  background-image: url('https://static.turbosquid.com/Preview/001230/665/E1/scifi-modular-hallway-3D_D.jpg');
+.unfav {
+  font-size: 15px;
+  color: white;
 }
-
-.vehicle {
-    background-image: url('https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/Vtapge4oeikxz0vzf/sci-fi-gate-green-screen_4vyxiwvtg__F0003.png');
-} */
-
 
 .card-faved {
 	position: relative;
