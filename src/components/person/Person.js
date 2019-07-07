@@ -18,7 +18,7 @@ const Person = ({ people, toggleFavorite, favorites }) => {
         <div className='mid-card'>
           <p>Birth Year: {person.birth_year}</p>
           <p>Gender: {person.gender}</p>
-          <p>Height: {person.height}</p>
+          <p>Height: {person.height} cm</p>
           <p>Hair Color: {person.hair_color}</p>
         </div>
         <hr />
