@@ -14,7 +14,6 @@ import Favorite from '../favorite/Favorite';
 class App extends Component {
   constructor() {
     super();
-    // this.test = this.test();
     this.state = {
       people: [],
       planets: [],
@@ -46,24 +45,29 @@ class App extends Component {
 
   makeFavorite = (id, type) => {
     const newFavorite = this.state[type].find(card => {
-      return card.created === id
-    })
-    let addedFavorites = [...new Set([...this.state.favorites, newFavorite])]
-    this.setState({favorites: addedFavorites}, () => console.log(this.state.favorites))
-  }
+      return card.created === id;
+    });
+    let addedFavorites = [...new Set([...this.state.favorites, newFavorite])];
+    this.setState({ favorites: addedFavorites }, () =>
+      console.log(this.state.favorites)
+    );
+  };
 
   render = () => {
-    // const loading = !this.state.films.length && <img src='https://loading.io/spinners/flickr/lg.orbit-balls-loading-gif.gif' alt='loading' />;
     return (
       <main>
         <div className='header'>
-          <HeaderFav 
-          favorites={this.state.favorites.length}
-          />
+          <HeaderFav favorites={this.state.favorites.length} />
           <nav className='nav-links'>
-            <NavLink to='/people' className='nav-button'>People</NavLink>
-            <NavLink to='/planets' className='nav-button'>Planets</NavLink>
-            <NavLink to='/vehicles' className='nav-button'>Vehicles</NavLink>
+            <NavLink to='/people' className='nav-button'>
+              People
+            </NavLink>
+            <NavLink to='/planets' className='nav-button'>
+              Planets
+            </NavLink>
+            <NavLink to='/vehicles' className='nav-button'>
+              Vehicles
+            </NavLink>
           </nav>
         </div>
         <section>
@@ -76,26 +80,37 @@ class App extends Component {
           <div className='card-container'>
             <Route
               path='/people'
-              render={() => <Person people={this.state.people}
-              favorites={this.state.favorites}
-              makeFavorite={this.makeFavorite} />}
+              render={() => (
+                <Person
+                  people={this.state.people}
+                  favorites={this.state.favorites}
+                  makeFavorite={this.makeFavorite}
+                />
+              )}
             />
             <Route
               path='/planets'
-              render={() => <Planet planets={this.state.planets} 
-              favorites={this.state.favorites}
-              makeFavorite={this.makeFavorite}/>}
+              render={() => (
+                <Planet
+                  planets={this.state.planets}
+                  favorites={this.state.favorites}
+                  makeFavorite={this.makeFavorite}
+                />
+              )}
             />
             <Route
               path='/vehicles'
-              render={() => <Vehicle vehicles={this.state.vehicles} 
-              favorites={this.state.favorites}
-              makeFavorite={this.makeFavorite}/>}
+              render={() => (
+                <Vehicle
+                  vehicles={this.state.vehicles}
+                  favorites={this.state.favorites}
+                  makeFavorite={this.makeFavorite}
+                />
+              )}
             />
             <Route
               path='/favorites'
-              render={() => <Favorite favorites={this.state.favorites} 
-              />}
+              render={() => <Favorite favorites={this.state.favorites} />}
             />
           </div>
         </section>
