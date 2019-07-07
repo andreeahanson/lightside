@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card should match the snapshot 1`] = `ShallowWrapper {}`;
+
+exports[`Card should match the snapshot 2`] = `ShallowWrapper {}`;
+
+exports[`Card should match the snapshot 3`] = `ShallowWrapper {}`;
+
+exports[`Card should match the snapshot when there are no favorites or data items 1`] = `ShallowWrapper {}`;
