@@ -10,7 +10,7 @@ const Person = ({ people, makeFavorite, favorites }) => {
         className={classString}
         key={person.created}
         id={person.created}
-        onClick={() => makeFavorite(person.created, 'people')}
+        onClick={() => makeFavorite(person.created, 'people', classString)}
       >
         <h3 className='top-card'>{person.name}</h3>
         <hr />

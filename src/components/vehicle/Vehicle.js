@@ -11,7 +11,7 @@ const Vehicle = ({ vehicles, makeFavorite, favorites }) => {
         className={classString}
         key={vehicle.created}
         id={vehicle.created}
-        onClick={() => makeFavorite(vehicle.created, 'vehicles')}
+        onClick={() => makeFavorite(vehicle.created, 'vehicles', classString)}
       >
         <h3 className='top-card'>{vehicle.name}</h3>
         <hr />

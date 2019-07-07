@@ -11,7 +11,7 @@ const Planet = ({ planets, makeFavorite, favorites }) => {
         className={classString}
         key={planet.created}
         id={planet.created}
-        onClick={() => makeFavorite(planet.created, 'planets')}
+        onClick={() => makeFavorite(planet.created, 'planets', classString)}
       >
         <h3 className='top-card'>{planet.name}</h3>
         <hr />

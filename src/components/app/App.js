@@ -43,14 +43,18 @@ class App extends Component {
     this.getData();
   };
 
-  makeFavorite = (id, type) => {
-    const newFavorite = this.state[type].find(card => {
-      return card.created === id;
-    });
-    let addedFavorites = [...new Set([...this.state.favorites, newFavorite])];
-    this.setState({ favorites: addedFavorites }, () =>
-      console.log(this.state.favorites)
-    );
+  makeFavorite = (id, type, classString) => {
+    console.log(classString);
+    if (classString === 'card-false') {
+      const newFavorite = this.state[type].find(card => card.created === id);
+      let addedFavorites = [...new Set([...this.state.favorites, newFavorite])];
+      this.setState({ favorites: addedFavorites });
+    } else {
+      const removedFavorites = this.state.favorites.filter(
+        card => card.created !== id
+      );
+      this.setState({ favorites: removedFavorites });
+    }
   };
 
   render = () => {
@@ -71,7 +75,6 @@ class App extends Component {
           </nav>
         </div>
         <section>
-          {/* {loading} */}
           <Route
             exact
             path='/'
@@ -110,7 +113,7 @@ class App extends Component {
             />
             <Route
               path='/favorites'
-              render={() => <Favorite favorites={this.state.favorites} />}
+              render={() => <Favorite favorites={this.state.favorites} makeFavorite={this.makeFavorite} />}
             />
           </div>
         </section>
