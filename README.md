@@ -48,3 +48,8 @@ Then, go to http://localhost:8080/ in your browser to see the code running in th
 - Think deeply about React Lifecycle Methods.
 - Understand and utilize React Router to effectively display data.
 - Use propTypes for every component receiving props.
+
+## Team members
+
+[Jev Forsberg] (https://github.com/baldm0mma)
+[Andreea Hanson] (https://github.com/andreeahanson)
