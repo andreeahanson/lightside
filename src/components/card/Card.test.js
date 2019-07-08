@@ -20,6 +20,7 @@ describe('Card', () => {
         favorites={sampleFavorites.results}
         toggleFavorite={toggleFavoriteMock}
         className={classNameMock}
+        error='error'
       />
     );
 
@@ -29,6 +30,7 @@ describe('Card', () => {
         favorites={sampleFavorites.results}
         toggleFavorite={toggleFavoriteMock}
         className={classNameMock}
+        eerror='error'
       />
     );
 
@@ -38,6 +40,7 @@ describe('Card', () => {
         favorites={sampleFavorites.results}
         toggleFavorite={toggleFavoriteMock}
         className={classNameMock}
+        error='error'
       />
     );
   });
@@ -50,7 +53,7 @@ describe('Card', () => {
 
   it('should match the snapshot when there are no favorites or data items', () => {
     wrapper1 = shallow(
-      <Card data={[]} favorites={[]} className={classNameMock} />
+      <Card data={[]} favorites={[]} className={classNameMock} error='error' />
     );
 
     expect(wrapper1).toMatchSnapshot();
@@ -93,6 +96,7 @@ describe('Card', () => {
         favorites={[]}
         className={classNameMock}
         toggleFavorite={toggleFavoriteMock}
+        error='error'
       />
     );
 
