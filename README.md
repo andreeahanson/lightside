@@ -4,7 +4,7 @@
 ...........
 ...........
 
-## Instalation
+## Installation
 
 ```
 git clone https://github.com/andreeahanson/lightside.git
