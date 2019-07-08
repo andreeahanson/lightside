@@ -1,8 +1,11 @@
 ## Description
 
-...........
-...........
-...........
+Lightside is an app built in React. It highlights our use of single responsability, DRY component usage, asynchronous JavaScript fetching and StarWars themed styling. We did our best to implement React components that communicate to each other as needed, take advantage of State, props, and class/functional components, write modular, reusable code that attempts to adhere to the following principles: the Open/Closed Principle, Liskov Substitution Principle, Interface Segregation Principle, Dependency Inversion Principle, and Test Driven Development, and robust usage of object and array prototype methods to perform rich data manipulation.
+
+On load, the app fetches from a StarWars API, displaying a random movie intro crawl, and three categories for data display: people, vehicles and planets. By clicking on one of these categories, the user will be routed to the collection of info-cards at which point they may favorite any card that is being displayed. By doing that, the cards will be added to the Favorites category, which is also accessible by clicking on the Favorites tab. Clicking again on the 'favorited' cards, they will be eliminated from the Favorites category, and cease to be highlighted.
+
+The app was created using `create-react-app`.
+
 
 ## Installation
 
