@@ -23,15 +23,17 @@ Then, go to http://localhost:8080/ in your browser to see the code running in th
 
 
 ## Screenshots
-![alt text](https://github.com/andreeahanson/lightside/blob/master/src/images/Crawll.png)
+![Crawll](https://github.com/andreeahanson/lightside/blob/master/src/images/Crawll.png)
 
-![alt text](https://github.com/andreeahanson/lightside/blob/master/src/images/People.png)
+![People](https://github.com/andreeahanson/lightside/blob/master/src/images/People.png)
 
-![alt text](https://github.com/andreeahanson/lightside/blob/master/src/images/People-with-favs.png)
+![PeopleFav](https://github.com/andreeahanson/lightside/blob/master/src/images/People-with-favs.png)
 
-![alt text](https://github.com/andreeahanson/lightside/blob/master/src/images/Favorites-full.png)
+![Favorites](https://github.com/andreeahanson/lightside/blob/master/src/images/Favorites-full.png)
 
-![alt text](https://github.com/andreeahanson/lightside/blob/master/src/images/Favorites-empty.png)
+![FavoritesEmpty](https://github.com/andreeahanson/lightside/blob/master/src/images/Favorites-empty.png)
+
+
 
 ## Learning goals
 
