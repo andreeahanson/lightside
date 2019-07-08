@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Card.css';
 
-const Card = ({ data, toggleFavorite, favorites, type }) => {
-  if (!favorites.length && !data.length) {
+const Card = ({ data, toggleFavorite, favorites, type, error }) => {
+  if (!favorites.length && !data.length && !error.length) {
     return <h2>Have any favorites?</h2>;
   } else {
     let allCards = data.map(datum => {

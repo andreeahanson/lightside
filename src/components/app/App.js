@@ -13,7 +13,8 @@ class App extends Component {
       planets: [],
       vehicles: [],
       films: [],
-      favorites: []
+      favorites: [],
+      error: ''
     };
   }
 
@@ -53,8 +54,8 @@ class App extends Component {
         .then(response => response.json())
         .then(data => ({ ...data, title: url.title }))
         .then(initialData => this.cleanUpData(initialData))
-        .then(final => this.setState({ [final.title]: final.results }));
-      // .then(() => console.log(this.state));
+        .then(final => this.setState({ [final.title]: final.results }))
+        .catch(error => this.setState({ error: 'I\'m sorry, Lord Vader, there was an error fetching...' }));
     });
   };
 
@@ -93,6 +94,7 @@ class App extends Component {
           </nav>
         </div>
         <section>
+          {this.state.error && <h2 className='error-message'>{this.state.error}</h2>}
           <Route
             exact
             path='/'
@@ -107,6 +109,7 @@ class App extends Component {
                   favorites={this.state.favorites}
                   toggleFavorite={this.toggleFavorite}
                   type='people'
+                  error={this.state.error}
                 />
               )}
             />
@@ -118,6 +121,7 @@ class App extends Component {
                   favorites={this.state.favorites}
                   toggleFavorite={this.toggleFavorite}
                   type='planets'
+                  error={this.state.error}
                 />
               )}
             />
@@ -129,6 +133,7 @@ class App extends Component {
                   favorites={this.state.favorites}
                   toggleFavorite={this.toggleFavorite}
                   type='vehicles'
+                  error={this.state.error}
                 />
               )}
             />
@@ -140,6 +145,7 @@ class App extends Component {
                   favorites={this.state.favorites}
                   toggleFavorite={this.toggleFavorite}
                   type='favorites'
+                  error={this.state.error}
                 />
               )}
             />
