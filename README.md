@@ -51,5 +51,6 @@ Then, go to http://localhost:8080/ in your browser to see the code running in th
 
 ## Team members
 
-[Jev Forsberg] (https://github.com/baldm0mma)
-[Andreea Hanson] (https://github.com/andreeahanson)
+[Jev Forsberg](https://github.com/baldm0mma)
+
+[Andreea Hanson](https://github.com/andreeahanson)
