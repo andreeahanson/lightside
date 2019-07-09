@@ -78,6 +78,7 @@ class App extends Component {
               path='/people'
               render={() => (
                 <Card
+                /* istanbul ignore next */
                   data={this.state.people}
                   favorites={this.state.favorites}
                   toggleFavorite={this.toggleFavorite}

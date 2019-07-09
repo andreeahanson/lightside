@@ -53,10 +53,19 @@ describe('App', () => {
     expect(window.fetch).toHaveBeenCalled();
   });
 
-  it.skip('should have a method that adds cards to the favorites array', () => {
-    const created = '2014-12-10T16:20:44.310000Z';
-    wrapper.state = { people: [mockData], favorites: [] };
-    wrapper.instance().toggleFavorite(created, 'people', 'card-false');
-    expect(wrapper.state['favorites'].length).toEqual(1);
+  it('should have a method that adds cards to the favorites array', () => {
+
+    wrapper.setState({
+      people: [
+        { name: "Vinton", created: 1, type: "people" },
+        { name: "Steve", created: 2, type: "people" }
+      ],
+      favorites: [
+        { name: "Vinton", created: 1, type: "people" }
+      ]
+    })
+
+    wrapper.instance().toggleFavorite(2, 'people', 'card-false')
+    expect(wrapper.instance().state['favorites'].length).toEqual(2);
   });
 });
