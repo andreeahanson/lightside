@@ -3,6 +3,7 @@ import getData from './apiCalls';
 describe('getData', () => {
   let mockData;
   let urls;
+  let status=true;
 
   beforeEach(() => {
     mockData = {
@@ -15,14 +16,14 @@ describe('getData', () => {
 
     urls = [{ title: 'people', link: 'https://swapi.co/api/people/' }];
 
-    window.fetch = jest.fn().mockImplementation(() => {
-      return Promise.resolve({
-        ok: true,
-        json: () => Promise.resolve(mockData)
-      });
+  });
+  window.fetch = jest.fn().mockImplementation(() => {
+    return Promise.resolve({
+      ok: status,
+      json: () => Promise.resolve(mockData)
     });
   });
-
+  
   it('should be called with correct URL', () => {
     getData(urls);
     expect(window.fetch).toHaveBeenCalledWith('https://swapi.co/api/people/');
@@ -75,4 +76,13 @@ describe('getData', () => {
 
     expect(result).toEqual(expected);
   });
+
+  it('SAD: should throw error if response is not ok', async () => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: false
+      })
+    })
+    await expect(getData()).rejects.toEqual(Error('Error'))
+  })
 });

@@ -64,7 +64,7 @@ class App extends Component {
             </NavLink>
           </nav>
         </div>
-        <section>
+        <section>``
           {this.state.error && (
             <h2 className='error-message'>{this.state.error}</h2>
           )}
