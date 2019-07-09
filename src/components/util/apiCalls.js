@@ -1,6 +1,6 @@
 import cleanUpData from './dataCleaner';
 
-const getData = (testUrls) => {
+const getData = testUrls => {
   const tinyUrls = 'https://swapi.co/api/';
   const urls = testUrls || [
     { title: 'people', link: `${tinyUrls}people/` },
@@ -11,15 +11,14 @@ const getData = (testUrls) => {
   const finalData = urls.map(url => {
     return fetch(url.link)
       .then(response => {
-        if(response.ok){
-          return response.json()
+        if (response.ok) {
+          return response.json();
         } else {
-          throw Error("Error")
+          throw Error('Error');
         }
       })
       .then(data => ({ ...data, title: url.title }))
-      // .then(data2 => console.log(data2))
-      .then(initialData => cleanUpData(initialData))
+      .then(initialData => cleanUpData(initialData));
   });
   return Promise.all(finalData);
 };

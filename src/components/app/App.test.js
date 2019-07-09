@@ -59,5 +59,4 @@ describe('App', () => {
     wrapper.instance().toggleFavorite(created, 'people', 'card-false');
     expect(wrapper.state['favorites'].length).toEqual(1);
   });
-
 });

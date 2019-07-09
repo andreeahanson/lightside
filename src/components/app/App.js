@@ -18,16 +18,20 @@ class App extends Component {
       error: ''
     };
   }
-  
 
-  componentDidMount = (testUrls) => {
+  componentDidMount = testUrls => {
     getData(testUrls)
-      .then(finalData => finalData.forEach(category => {
-        this.setState({ [category.title]: category.results })
-      })
+      .then(finalData =>
+        finalData.forEach(category => {
+          this.setState({ [category.title]: category.results });
+        })
       )
 
-      .catch(error => this.setState({ error: 'I\'m sorry, Lord Vader, there was an error fetching...' }));
+      .catch(error =>
+        this.setState({
+          error: "I'm sorry, Lord Vader, there was an error fetching..."
+        })
+      );
   };
 
   toggleFavorite = (id, type, classString) => {
@@ -61,7 +65,9 @@ class App extends Component {
           </nav>
         </div>
         <section>
-          {this.state.error && <h2 className='error-message'>{this.state.error}</h2>}
+          {this.state.error && (
+            <h2 className='error-message'>{this.state.error}</h2>
+          )}
           <Route
             exact
             path='/'
