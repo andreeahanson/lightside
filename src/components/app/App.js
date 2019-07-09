@@ -4,6 +4,7 @@ import { Route, NavLink } from 'react-router-dom';
 import Card from '../card/Card';
 import Landing from '../landing/Landing';
 import HeaderFav from '../headerFav/HeaderFav';
+import getData from '../util/apiCalls';
 
 class App extends Component {
   constructor() {
@@ -17,50 +18,16 @@ class App extends Component {
       error: ''
     };
   }
+  
 
-  cleanUpData = initialData => {
-    const relevantData = initialData.results.map(object => {
-      return {
-        created: object.created,
-        title: object.title || null,
-        name: object.name || null,
-        birth_year: object.birth_year || null,
-        gender: object.gender || null,
-        height: object.height || null,
-        hair_color: object.hair_color || null,
-        terrain: object.terrain || null,
-        diameter: object.diameter || null,
-        population: object.population || null,
-        model: object.model || null,
-        vehicle_class: object.vehicle_class || null,
-        passengers: object.passengers || null,
-        opening_crawl: object.opening_crawl || null,
-        release_date: object.release_date || null
-      };
-    });
-    return { ...initialData, results: relevantData };
-  };
+  componentDidMount = (testUrls) => {
+    getData(testUrls)
+      .then(finalData => finalData.forEach(category => {
+        this.setState({ [category.title]: category.results })
+      })
+      )
 
-  getData = () => {
-    const tinyUrls = 'https://swapi.co/api/';
-    const urls = [
-      { title: 'people', link: `${tinyUrls}people/` },
-      { title: 'planets', link: `${tinyUrls}planets/` },
-      { title: 'vehicles', link: `${tinyUrls}vehicles/` },
-      { title: 'films', link: `${tinyUrls}films/` }
-    ];
-    urls.map(url => {
-      return fetch(url.link)
-        .then(response => response.json())
-        .then(data => ({ ...data, title: url.title }))
-        .then(initialData => this.cleanUpData(initialData))
-        .then(final => this.setState({ [final.title]: final.results }))
-        .catch(error => this.setState({ error: 'I\'m sorry, Lord Vader, there was an error fetching...' }));
-    });
-  };
-
-  componentDidMount = () => {
-    this.getData();
+      .catch(error => this.setState({ error: 'I\'m sorry, Lord Vader, there was an error fetching...' }));
   };
 
   toggleFavorite = (id, type, classString) => {
